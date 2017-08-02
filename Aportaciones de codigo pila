@@ -1,0 +1,61 @@
+{                                               
+        // CODIGO PARA ELIMINAR 
+       
+           if(pila == null){
+            JOptionPane.showMessageDialog(null, "Pila esta Vacia");
+        }else{
+            TXTeliminacion.setText(TXTeliminacion.getText()+pila.dato+"-".toString());
+            pila=pila.enlace;
+             JOptionPane.showMessageDialog(null,"Elemento de la cima Eliminado");
+             TXTeliminacion.setText("");
+        }
+        
+    }  
+    
+     {                                           
+        // CODIGO DE INGRESO 
+         Nodo Nuevonodo = new Nodo(TXTingreso.getText());
+        if(pila==null)
+        pila=Nuevonodo;
+        else{
+            Nuevonodo.enlace=pila;
+            pila=Nuevonodo;
+        }
+        JOptionPane.showMessageDialog(null, " Dato insertado en la Pila ");
+        TXTingreso.setText("");
+        
+    }
+    
+    
+    //CODIGO DE IMPRESION 
+     Nodo temporal = pila;
+        Nodo anterior = new Nodo();
+        
+        
+         if(Nodo.pilaVacia(temporal)){
+        JOptionPane.showMessageDialog(null,"La Pila no contiene elemento.");
+         
+         }else
+         
+             if (pila.enlace==null)
+                  
+        {
+          TXTimpresion.setText(TXTimpresion.getText()+ pila.dato.toString()+"-");  
+          pila=null;
+          
+        }else
+        {
+        while(temporal.enlace!=null){
+            anterior=temporal;
+            temporal=temporal.enlace;  
+            
+        }
+        TXTimpresion.setText(TXTimpresion.getText()+ temporal.dato.toString()+"-");   
+         anterior.enlace=null;
+         
+        }
+       
+    }                                            
+
+    
+    
