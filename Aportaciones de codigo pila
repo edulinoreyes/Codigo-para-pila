@@ -1,19 +1,23 @@
-{                                               
-        // CODIGO PARA ELIMINAR 
-       
-           if(pila == null){
-            JOptionPane.showMessageDialog(null, "Pila esta Vacia");
-        }else{
-            TXTeliminacion.setText(TXTeliminacion.getText()+pila.dato+"-".toString());
+public class UIPila extends javax.swing.JFrame {
+Nodo pila= null;
+    
+private void BTNeliminacionActionPerformed(java.awt.event.ActionEvent evt) {                                               
+        // TODO add your handling code here:
+           TXTeliminacion.setText("");
+          if(Nodo.pilaVacia(pila)){
+        JOptionPane.showMessageDialog(null,"La Pila no contiene elemento.");
+          
+          }else{
+            TXTeliminacion.setText(TXTeliminacion.getText()+pila.dato.toString());
             pila=pila.enlace;
              JOptionPane.showMessageDialog(null,"Elemento de la cima Eliminado");
-             TXTeliminacion.setText("");
+             
         }
         
-    }  
-    
-     {                                           
-        // CODIGO DE INGRESO 
+    }                                              
+
+    private void BTNingresoActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // TODO add your handling code here:
          Nodo Nuevonodo = new Nodo(TXTingreso.getText());
         if(pila==null)
         pila=Nuevonodo;
@@ -24,11 +28,12 @@
         JOptionPane.showMessageDialog(null, " Dato insertado en la Pila ");
         TXTingreso.setText("");
         
-    }
-    
-    
-    //CODIGO DE IMPRESION 
-     Nodo temporal = pila;
+    }                                          
+
+    private void BTNEliminardelacimaActionPerformed(java.awt.event.ActionEvent evt) {                                                    
+        // TODO add your handling code here:
+        TXTelementocima.setText("");
+        Nodo temporal = pila;
         Nodo anterior = new Nodo();
         
         
@@ -40,7 +45,7 @@
              if (pila.enlace==null)
                   
         {
-          TXTimpresion.setText(TXTimpresion.getText()+ pila.dato.toString()+"-");  
+          TXTelementocima.setText(TXTelementocima.getText()+ pila.dato.toString()+"-");  
           pila=null;
           
         }else
@@ -50,12 +55,10 @@
             temporal=temporal.enlace;  
             
         }
-        TXTimpresion.setText(TXTimpresion.getText()+ temporal.dato.toString()+"-");   
+        TXTelementocima.setText(TXTelementocima.getText()+ temporal.dato.toString()+"-");   
          anterior.enlace=null;
          
         }
        
-    }                                            
-
-    
-    
+    }      
+}
